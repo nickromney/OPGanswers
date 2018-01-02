@@ -1,0 +1,20 @@
+# Create managed policy
+- name: Create IAM Managed Policy
+  iam_managed_policy:
+    policy_name: "{{ iam_managed_policy_name }}"
+    policy_description: "A Helpful managed policy"
+    policy: "{{ lookup('file','IAMrolepolicy_EC2ToS3.json') }}"
+    state: present
+    aws_access_key: "{{aws_access_key}}"
+    aws_secret_key: "{{aws_secret_key}}"
+
+# Create an IAM role with the managed policy
+# We will grant access to the S3 bucket in the IAM policy, as the S3 bucket is same-account bounded.
+- iam_role:
+    name: "{{ ec2_iam_role }}"
+    assume_role_policy_document: "{{ lookup('file','IAMassumerolepolicy.json') }}"
+    state: present
+    managed_policy:
+      - arn:aws:iam::775537867049:policy/{{ iam_managed_policy_name }}
+    aws_access_key: "{{aws_access_key}}"
+    aws_secret_key: "{{aws_secret_key}}"

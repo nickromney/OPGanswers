@@ -1,0 +1,26 @@
+version: '2'  
+services:  
+  web:
+    image: nginx:alpine
+    container_name: web01
+    volumes:
+      - "./web:/usr/share/nginx/html"
+    ports:
+      - "8000:80"
+    environment:
+      - NGINX_HOST=localhost
+    restart: always
+    depends_on:
+      - postgresdb
+      
+  postgresdb:
+    image: postgres:latest
+    container_name: pg01
+    volumes:
+      - "./data/db/postgresql:/var/lib/postgresql"
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=:|_QTL9_-H+9V.o
+      - POSTGRES_USER=pgdbuser
+    restart: always

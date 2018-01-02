@@ -1,0 +1,9 @@
+aws_access_key: REDACTED
+aws_secret_key: REDACTED    
+aws_region: eu-west-1
+s3_bucket_name: nickromneyec2tos3
+ec2_keypair_name: NickRAWS
+ec2_instance_type: t2.micro
+ec2_ami_id: ami-b09e1ac9
+ec2_iam_role: EC2ToS3
+iam_managed_policy_name: ManagedPolicyS3

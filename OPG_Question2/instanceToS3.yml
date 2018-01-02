@@ -1,0 +1,10 @@
+---
+- name: Create an S3 bucket, and grant an EC2 instance permission to write to it
+  hosts: localhost
+  gather_facts: false
+  vars_files:
+    - vars.yml
+  roles: 
+    - createS3bucket
+    - createIAMrole
+    - createEC2instance
