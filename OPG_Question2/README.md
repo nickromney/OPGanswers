@@ -19,9 +19,11 @@ Using Amazon Linux 2 LTS Candidate AMI 2017.12.0 (HVM), SSD Volume Type - ami-b0
 python get-pip.py --user
 export PATH=~/.local/bin:$PATH
 source ~/.bash_profile
-pip install awscli --upgrade --user```
+pip install awscli --upgrade --user
+```
 
 ### Use the AWS CLI to test uploading a file from the EC2 instance
 
 ```touch file1.txt
-aws s3 cp file1.txt s3://nickromneyec2tos3/```
+aws s3 cp file1.txt s3://nickromneyec2tos3/
+```

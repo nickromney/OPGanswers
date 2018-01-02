@@ -12,10 +12,12 @@ If we run the command
 ```
 sudo fdisk -l
 ```
+
 we see that the instance store is available as /dev/xvdb
 It already contains an ext3 file system
 
 In the context of the userdata step on instance launch, this command will mount it to /opt
+
 ```
 sudo mount -t ext3 /dev/xvdb /opt
 ```
